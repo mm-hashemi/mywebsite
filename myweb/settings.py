@@ -26,7 +26,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 SECRET_KEY = 'django-insecure-ngd(_md4an9zd+qvbe60y4wjids*x-)n5&4uqkj)qke+n+#mm='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['https://mywebsite-c7xa.onrender.com']
 
