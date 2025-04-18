@@ -22,6 +22,7 @@ class SkillViewSet(APIView):
         return Response(serializer.data)
 
 @method_decorator(csrf_exempt, name='dispatch')
+
 class ProjectViewSet(APIView):
     def get(self, request):
         projects = Project.objects.all()

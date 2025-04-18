@@ -11,6 +11,6 @@ from home.views import ProfileViewSet, SkillViewSet, ProjectViewSet
 urlpatterns = [
    path('profile/', ProfileViewSet.as_view()),
    path('skills/', SkillViewSet.as_view()),
-   path('projects/', ProjectViewSet.as_view()),
+   path('projects/', ProjectViewSet.as_view())
 
 ]
