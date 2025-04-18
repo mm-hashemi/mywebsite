@@ -28,8 +28,11 @@ SECRET_KEY = 'django-insecure-ngd(_md4an9zd+qvbe60y4wjids*x-)n5&4uqkj)qke+n+#mm=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://mywebsite-c7xa.onrender.com']
-
+ALLOWED_HOSTS = [
+    os.environ.get('https://mywebsite-c7xa.onrender.com', 'localhost'), 
+    'localhost',
+    '127.0.0.1',
+]
 
 # Application definition
 
@@ -59,11 +62,12 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
-
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
-    ]
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',  # This one requires CSRF
+        'rest_framework.authentication.TokenAuthentication',
+    )
 }
 
 ROOT_URLCONF = 'myweb.urls'
